@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="1.6"
+        android:scaleY="1.6"
+        android:translateX="35"
+        android:translateY="35">
+        <!-- Shield Body -->
+        <path
+            android:pathData="M12,1 L3,5 v6 c0,5.55 3.84,10.74 9,12 c5.16,-1.26 9,-6.45 9,-12 V5 L12,1 z"
+            android:strokeWidth="1.8"
+            android:strokeColor="#22D3EE">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:startX="12"
+                    android:startY="1"
+                    android:endX="12"
+                    android:endY="23"
+                    android:type="linear">
+                    <item android:offset="0.0" android:color="#FF06B6D4" />
+                    <item android:offset="1.0" android:color="#FF1D4ED8" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <!-- Inner Check / Circuit Path -->
+        <path
+            android:pathData="M9.5,11.5 L11,13 L15,8"
+            android:fillColor="#00000000"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+    </group>
+</vector>

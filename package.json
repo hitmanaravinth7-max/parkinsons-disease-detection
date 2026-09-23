@@ -1,0 +1,38 @@
+{
+  "name": "finguard-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FinGuard AI – Real-Time Fraud Detection for Digital Transactions",
+  "homepage": "https://finguard.ai",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.2",
+    "lucide-react": "^0.363.0",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.8"
+  },
+  "keywords": [
+    "fraud-detection",
+    "cybersecurity",
+    "fintech",
+    "machine-learning",
+    "real-time",
+    "react",
+    "chartjs"
+  ],
+  "author": "FinGuard AI Team",
+  "license": "MIT"
+}
