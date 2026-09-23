@@ -1,100 +1,171 @@
 import React from 'react';
-import {
-  LayoutDashboard,
-  Activity,
-  AlertOctagon,
-  SearchCode,
-  BrainCircuit,
-  BarChart3,
-  Settings as SettingsIcon,
+import { 
+  LayoutDashboard, 
+  BrainCircuit, 
+  History, 
+  Info, 
+  FileCheck2, 
+  Stethoscope, 
+  LogOut, 
+  ChevronRight,
+  Sparkles,
+  Database,
   ShieldAlert
 } from 'lucide-react';
 
-export default function Sidebar({ activeTab, onSelectTab, activeAlertsCount, mobileOpen, onCloseMobile }) {
+export default function Sidebar({ 
+  currentTab, 
+  setCurrentTab, 
+  sidebarOpen, 
+  setSidebarOpen, 
+  onLogout,
+  stats
+}) {
   const navItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { id: 'live-transactions', label: 'Live Transactions', icon: Activity },
-    { id: 'fraud-alerts', label: 'Fraud Alerts', icon: AlertOctagon, badge: activeAlertsCount },
-    { id: 'analyze', label: 'Transaction Analysis', icon: SearchCode },
-    { id: 'ai-engine', label: 'AI Detection Engine', icon: BrainCircuit, tag: 'ML' },
-    { id: 'analytics', label: 'Analytics', icon: BarChart3 },
-    { id: 'settings', label: 'Settings', icon: SettingsIcon },
+    {
+      id: 'dashboard',
+      label: 'Dashboard',
+      icon: LayoutDashboard,
+      badge: 'Live',
+      badgeColor: 'bg-teal-500/20 text-teal-300'
+    },
+    {
+      id: 'predict',
+      label: 'Predict Parkinson’s',
+      icon: BrainCircuit,
+      badge: '22 Features',
+      badgeColor: 'bg-blue-500/20 text-blue-300'
+    },
+    {
+      id: 'history',
+      label: 'Prediction History',
+      icon: History,
+      badge: stats?.total ? `${stats.total}` : null,
+      badgeColor: 'bg-slate-700 text-slate-300'
+    },
+    {
+      id: 'about',
+      label: 'About & Symptoms',
+      icon: Info,
+      badge: null
+    }
   ];
 
   return (
     <>
       {/* Mobile Backdrop */}
-      {mobileOpen && (
-        <div
-          onClick={onCloseMobile}
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 md:hidden"
+      {sidebarOpen && (
+        <div 
+          onClick={() => setSidebarOpen(false)}
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
         />
       )}
 
       {/* Sidebar Container */}
-      <aside
-        className={`fixed md:sticky top-16 left-0 z-40 md:z-20 h-[calc(100vh-4rem)] w-64 bg-slate-900/95 border-r border-slate-800/80 p-4 flex flex-col justify-between transition-transform duration-300 ease-in-out ${
-          mobileOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-        }`}
-      >
-        <div className="space-y-6">
-          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-500 px-3">
-            Core Surveillance
+      <aside className={`
+        fixed lg:static top-0 bottom-0 left-0 z-40
+        w-64 bg-[#0a1022] border-r border-slate-800
+        flex flex-col justify-between
+        transition-transform duration-300 ease-in-out
+        ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      `}>
+        {/* Top Section */}
+        <div className="p-5">
+          {/* Logo badge in sidebar */}
+          <div className="flex items-center gap-3 pb-6 mb-6 border-b border-slate-800">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-teal-500 to-blue-600 flex items-center justify-center shadow-md shadow-teal-500/20">
+              <Stethoscope className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h2 className="font-bold text-sm text-white leading-tight">
+                NeuroVoice AI
+              </h2>
+              <p className="text-[11px] text-teal-400 font-medium">
+                Parkinson’s Classifier
+              </p>
+            </div>
           </div>
 
-          <nav className="space-y-1.5">
+          {/* Navigation Links */}
+          <div className="space-y-1.5">
+            <p className="text-[10px] font-bold text-slate-500 tracking-wider uppercase px-3 mb-2">
+              Clinical Workspace
+            </p>
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive = activeTab === item.id;
+              const isActive = currentTab === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => {
-                    onSelectTab(item.id);
-                    if (onCloseMobile) onCloseMobile();
+                    setCurrentTab(item.id);
+                    setSidebarOpen(false);
                   }}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all group ${
-                    isActive
-                      ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/10 text-cyan-400 border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.15)]'
+                  className={`
+                    w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold
+                    transition-all duration-150 cursor-pointer
+                    ${isActive 
+                      ? 'bg-gradient-to-r from-teal-500/20 to-blue-500/10 text-teal-300 border border-teal-500/30 shadow-sm shadow-teal-500/10' 
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
-                  }`}
+                    }
+                  `}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className={`w-4 h-4 transition-transform group-hover:scale-110 ${isActive ? 'text-cyan-400' : 'text-slate-500'}`} />
+                    <Icon className={`w-4 h-4 ${isActive ? 'text-teal-400' : 'text-slate-400'}`} />
                     <span>{item.label}</span>
                   </div>
-
-                  <div className="flex items-center gap-1.5">
-                    {item.tag && (
-                      <span className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-blue-500/20 text-blue-300 border border-blue-500/30">
-                        {item.tag}
-                      </span>
-                    )}
-                    {item.badge > 0 && (
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-500 text-white animate-pulse">
-                        {item.badge}
-                      </span>
-                    )}
-                  </div>
+                  {item.badge && (
+                    <span className={`px-2 py-0.5 rounded-md text-[10px] font-mono ${item.badgeColor}`}>
+                      {item.badge}
+                    </span>
+                  )}
                 </button>
               );
             })}
-          </nav>
+          </div>
+
+          {/* Quick Metrics Summary in Sidebar */}
+          <div className="mt-8 p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+            <div className="flex items-center justify-between text-[11px] text-slate-400">
+              <span className="flex items-center gap-1.5">
+                <Database className="w-3.5 h-3.5 text-teal-400" />
+                Local Session DB
+              </span>
+              <span className="text-teal-400 font-bold">{stats?.total || 0} Records</span>
+            </div>
+            <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden flex">
+              <div 
+                className="bg-emerald-500 h-full transition-all duration-500"
+                style={{ width: `${stats?.total ? (stats.healthy / stats.total) * 100 : 50}%` }}
+                title="Healthy percentage"
+              />
+              <div 
+                className="bg-rose-500 h-full transition-all duration-500"
+                style={{ width: `${stats?.total ? (stats.parkinsons / stats.total) * 100 : 50}%` }}
+                title="Parkinson's detected percentage"
+              />
+            </div>
+            <div className="flex justify-between text-[10px] text-slate-400 pt-0.5">
+              <span className="text-emerald-400">● {stats?.healthy || 0} Healthy</span>
+              <span className="text-rose-400">● {stats?.parkinsons || 0} Detected</span>
+            </div>
+          </div>
         </div>
 
-        {/* Security Shield Status Box */}
-        <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800 text-xs space-y-2">
-          <div className="flex items-center gap-2 text-cyan-400 font-semibold">
-            <ShieldAlert className="w-4 h-4 text-cyan-400" />
-            <span>Telemetry Status</span>
+        {/* Footer info & Logout */}
+        <div className="p-4 border-t border-slate-800/80 space-y-3">
+          <div className="p-3 bg-teal-500/10 border border-teal-500/20 rounded-xl text-[11px] text-teal-300 flex items-start gap-2">
+            <Sparkles className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+            <span>Oxford Vocal Biomarker Reference Model (Little et al.)</span>
           </div>
-          <p className="text-[11px] text-slate-400 leading-relaxed">
-            Multi-model voting layer online. Zero data drift detected in current session.
-          </p>
-          <div className="pt-1 flex items-center justify-between font-mono text-[10px] text-slate-500">
-            <span>HEURISTIC GATE</span>
-            <span className="text-emerald-400">NOMINAL</span>
-          </div>
+
+          <button
+            onClick={onLogout}
+            className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-red-400 hover:bg-red-500/10 border border-slate-800 transition"
+          >
+            <LogOut className="w-4 h-4" />
+            <span>Sign Out Session</span>
+          </button>
         </div>
       </aside>
     </>

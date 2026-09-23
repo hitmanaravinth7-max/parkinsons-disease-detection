@@ -27,10 +27,10 @@ class MainActivity : ComponentActivity() {
       Box(
         modifier = Modifier
           .fillMaxSize()
-          .background(Color(0xFF070C18))
+          .background(Color(0xFF0B1329))
           .statusBarsPadding()
       ) {
-        FinGuardAppWebView()
+        ParkinsonsAppWebView()
       }
     }
   }
@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun FinGuardAppWebView() {
+fun ParkinsonsAppWebView() {
   AndroidView(
     modifier = Modifier.fillMaxSize(),
     factory = { context ->
@@ -47,7 +47,7 @@ fun FinGuardAppWebView() {
           ViewGroup.LayoutParams.MATCH_PARENT,
           ViewGroup.LayoutParams.MATCH_PARENT
         )
-        setBackgroundColor(android.graphics.Color.parseColor("#070C18"))
+        setBackgroundColor(android.graphics.Color.parseColor("#0B1329"))
 
         settings.apply {
           javaScriptEnabled = true

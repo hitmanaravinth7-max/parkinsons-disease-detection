@@ -1,68 +1,75 @@
-# FinGuard AI – Real-Time Fraud Detection for Digital Transactions
+# Parkinson’s Disease Detection – AI/ML Acoustic Biomarker Platform
 
-FinGuard AI is a modern, responsive cybersecurity and fintech web application designed to monitor digital transactions in real time, evaluate multi-dimensional risk scores, simulate machine-learning-driven anomaly detection (Isolation Forest + XGBoost hybrid architecture), and alert security analysts to suspicious activities.
-
-![FinGuard AI Banner](public/banner.png)
-
-## 🛡️ Key Features
-
-- **Cybersecurity & Fintech UI**: Futuristic dark theme with glassmorphism, glowing telemetry indicators, and high visual contrast.
-- **Authentication**: Demo login with credential validation, password show/hide, remember me, and 1-click test credentials (`admin@finguard.ai` / `admin123`).
-- **Live System Radar**: Real-time canvas radar scanner visualizing active transactions, DEFCON threat levels, and network telemetry.
-- **Real-Time Simulation**: Turn on live transaction streaming to see auto-generated banking transactions evaluate against the fraud detection engine.
-- **Heuristic & Hybrid Scoring Engine**: Multi-factor scoring incorporating transaction amount velocity, geographic anomalies, device novelty, off-hours execution, and previous fraud indicators.
-- **Interactive Transaction Analyzer**: Dedicated simulator to input custom transactions with sender/receiver accounts, device parameters, and frequency metrics to inspect AI fraud reasoning.
-- **AI Detection Engine (Architecture)**: Visual documentation of the intended enterprise architecture utilizing an unsupervised Isolation Forest for zero-day anomaly detection combined with a supervised XGBoost classifier.
-- **Fraud Alerts Management**: Real-time triage center for reviewing, dismissing, or inspecting high-risk flagged transactions.
-- **Interactive Analytics**: Dynamic charts powered by Chart.js tracking transaction volume, fraud trends, risk distribution, payment channels, and geographic hotspots.
-- **Transaction Details Modal**: Deep-dive telemetry inspection with device fingerprinting and risk breakdown.
-- **Local Persistence**: Stores authentication, live transactions, alerts, and settings in browser `localStorage`.
-- **Responsive Design**: Flawlessly adapts across desktop, tablet, and mobile displays.
+A responsive medical-grade web application for non-invasive **Parkinson’s Disease Detection** using biomedical voice acoustic measurements and machine learning classification.
 
 ---
 
-## 🚀 Quick Start (Local Development)
+## 🔬 Core System Features
+
+1. **Secure Healthcare Login**
+   - Professional clinical authentication interface.
+   - Demo-ready authentication with 1-click login without requiring an external backend.
+   - Password show/hide toggle, Remember Me persistence, and Forgot Password flow.
+
+2. **Interactive Clinical Dashboard**
+   - Executive statistics: Total Predictions, Healthy Results, Parkinson’s Detected Results, and model accuracy metrics.
+   - Recent patient prediction history summary.
+   - Key acoustic biomarker breakdown cards (Pitch Period Entropy, Spread1, HNR, Jitter).
+
+3. **Multi-Feature Vocal Prediction Form**
+   - 22 acoustic biomedical voice measurements:
+     - `MDVP:Fo(Hz)`, `MDVP:Fhi(Hz)`, `MDVP:Flo(Hz)`
+     - `MDVP:Jitter(%)`, `MDVP:Jitter(Abs)`, `MDVP:RAP`, `MDVP:PPQ`, `Jitter:DDP`
+     - `MDVP:Shimmer`, `MDVP:Shimmer(dB)`, `Shimmer:APQ3`, `Shimmer:APQ5`, `MDVP:APQ`, `Shimmer:DDA`
+     - `NHR`, `HNR`
+     - `RPDE`, `DFA`, `spread1`, `spread2`, `D2`, `PPE`
+   - Real-time input validation with user-friendly error banners.
+   - Preset buttons: **Healthy Control Sample**, **Mild Tremor**, and **Parkinson’s Positive**.
+
+4. **Prediction Result & Decision Explanation**
+   - Categorical outcome: **Parkinson’s Detected** or **Healthy**.
+   - Model confidence percentage.
+   - In-depth physiological explanation of acoustic deviations.
+   - Actionable clinical recommendations.
+   - Persistent notice: *“This result is for educational purposes only and is not a medical diagnosis.”*
+
+5. **Local Storage Prediction History**
+   - Client-side persistence using `localStorage`.
+   - Search by patient name, record ID, or diagnosis.
+   - Status filters (All, Healthy, Parkinson’s).
+   - Export history as JSON for clinical records.
+
+6. **Comprehensive Knowledge Base (About)**
+   - What is Parkinson's Disease (neurobiology of dopamine depletion in the substantia nigra).
+   - Cardinal motor symptoms & speech impairment (hypokinetic dysarthria).
+   - Vocal acoustic biomarkers (frequency jitter, amplitude shimmer, nonlinear pitch entropy).
+   - Machine learning role (SVM, Random Forest, multi-dimensional pattern recognition).
+   - Clinical limitations and system boundaries.
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (version 18+ recommended)
+- Node.js (v18+)
 - npm or yarn
 
 ### Installation
 ```bash
-# 1. Install dependencies
 npm install
+```
 
-# 2. Start the development server
+### Development
+```bash
 npm run dev
 ```
 
-Visit `http://localhost:5173` in your browser.
+### Production Build (Vercel & GitHub Friendly)
+```bash
+npm run build
+```
 
 ---
 
-## 🌐 Deploy to Vercel
-
-FinGuard AI is built to deploy on Vercel with zero configuration required:
-
-1. Push this repository to **GitHub**.
-2. Go to [Vercel](https://vercel.com) and import the repository.
-3. Keep default settings:
-   - **Framework Preset**: Vite
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-4. Click **Deploy**.
-
----
-
-## 🧠 Intended ML Architecture
-
-In a production environment, the frontend connects to an enterprise Python/FastAPI microservice running:
-1. **Unsupervised Anomaly Detection**: Isolation Forest detects outlier patterns without requiring pre-labeled fraud vectors.
-2. **Supervised Classification**: XGBoost / LightGBM evaluates known fraud vectors with calibrated probabilities.
-3. **Fusion Gate**: Weighted ensemble score `Risk = α · AnomalyScore + β · XGBoostScore + Heuristics`.
-4. **Sub-30ms Inference**: Evaluated in-memory with real-time decision gating.
-
----
-
-## 🔒 Security Notice
-*Demo Simulation Notice*: This application operates as a safe client-side simulation for security analysis UI demonstrations and does not claim measured production accuracy or real banking connectivity without backend integration.
+## ⚕️ Medical Disclaimer
+This software is intended strictly for educational, scientific demonstration, and research purposes. It does not replace professional neurological evaluation, physical examination (UPDRS), or neuroimaging (DaTscan/MRI).

@@ -3,18 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --primary: #06b6d4;
-  --primary-glow: rgba(6, 182, 212, 0.35);
-  --danger: #ef4444;
-  --warning: #f59e0b;
-  --success: #10b981;
-  --bg-dark: #070c18;
-  --card-bg: rgba(15, 23, 42, 0.75);
+  --primary-teal: #0d9488;
+  --primary-cyan: #06b6d4;
+  --accent-blue: #3b82f6;
+  --bg-deep: #0b1329;
+  --card-bg: rgba(15, 23, 42, 0.8);
 }
 
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  background-color: #070c18;
+  background-color: #0b1329;
   color: #f1f5f9;
   min-height: 100vh;
 }
@@ -23,42 +21,42 @@ code, .font-mono {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Glassmorphism */
+/* Glassmorphism Medical Card */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-card {
-  background: rgba(17, 24, 39, 0.6);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(56, 189, 248, 0.12);
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(20, 184, 166, 0.15);
   transition: all 0.25s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.3);
-  box-shadow: 0 4px 20px -2px rgba(6, 182, 212, 0.15);
+  border-color: rgba(20, 184, 166, 0.35);
+  box-shadow: 0 4px 20px -2px rgba(13, 148, 136, 0.2);
 }
 
-/* Pulse animation for live indicators */
-@keyframes pulse-glow {
+/* Pulse animation for active medical sensors */
+@keyframes pulse-medical {
   0%, 100% {
     opacity: 1;
     transform: scale(1);
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+    box-shadow: 0 0 12px rgba(20, 184, 166, 0.6);
   }
   50% {
     opacity: 0.6;
     transform: scale(0.95);
-    box-shadow: 0 0 4px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 4px rgba(20, 184, 166, 0.2);
   }
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s infinite ease-in-out;
+.animate-pulse-medical {
+  animation: pulse-medical 2s infinite ease-in-out;
 }
 
 /* Custom scrollbars */
@@ -77,5 +75,5 @@ code, .font-mono {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0ea5e9;
+  background: #0d9488;
 }

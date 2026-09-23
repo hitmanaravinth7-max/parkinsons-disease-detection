@@ -1,9 +1,9 @@
 {
-  "name": "finguard-ai",
+  "name": "parkinsons-disease-detection",
   "version": "1.0.0",
   "private": true,
-  "description": "FinGuard AI – Real-Time Fraud Detection for Digital Transactions",
-  "homepage": "https://finguard.ai",
+  "description": "Parkinson’s Disease Detection – AI/ML Vocal Biomarker Analysis Platform",
+  "homepage": "https://parkinsons-ai.health",
   "scripts": {
     "dev": "vite",
     "start": "vite",

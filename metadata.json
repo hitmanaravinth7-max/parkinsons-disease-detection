@@ -1,6 +1,6 @@
 {
-  "name": "FinGuard AI",
-  "description": "Real-Time Fraud Detection for Digital Transactions - AI simulation, live monitoring, cybersecurity analytics, risk scoring, and alert management.",
+  "name": "Parkinson’s Disease Detection",
+  "description": "AI/ML based Parkinson's Disease Detection web application using vocal biomarker acoustic telemetry, clinical risk analysis, and educational health metrics.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
