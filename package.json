@@ -2,6 +2,7 @@
   "name": "parkinsons-disease-detection",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Parkinson’s Disease Detection – AI/ML Vocal Biomarker Analysis Platform",
   "homepage": "https://parkinsons-ai.health",
   "scripts": {
@@ -25,14 +26,13 @@
     "vite": "^5.2.8"
   },
   "keywords": [
-    "fraud-detection",
-    "cybersecurity",
-    "fintech",
+    "parkinsons-disease-detection",
+    "healthcare",
+    "vocal-biomarkers",
     "machine-learning",
-    "real-time",
-    "react",
-    "chartjs"
+    "acoustic-analysis",
+    "react"
   ],
-  "author": "FinGuard AI Team",
+  "author": "Parkinson's AI Research Team",
   "license": "MIT"
 }

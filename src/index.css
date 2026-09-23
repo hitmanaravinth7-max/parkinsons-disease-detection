@@ -2,20 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base System Styles */
 :root {
   --primary-blue: #2563eb;
-  --primary-teal: #0d9488;
+  --primary-hover: #1d4ed8;
+  --bg-color: #f8fafc;
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background-color: #f8fafc;
   color: #0f172a;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
 code, .font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Card utility */
+.med-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+.med-input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
   font-family: 'JetBrains Mono', monospace;
+  color: #0f172a;
+  transition: all 0.15s ease-in-out;
+}
+
+.med-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.med-input::placeholder {
+  color: #94a3b8;
 }
 
 /* Custom scrollbars */
